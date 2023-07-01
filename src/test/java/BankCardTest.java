@@ -38,14 +38,13 @@ public class BankCardTest {
 
     @Test
     void testDriver() {
-        driver.get("http://0.0.0:9999/");
+        driver.get("http://localhost:9999");
         driver.findElement((By.cssSelector("[data-test-id=name] input"))).sendKeys("Ирина Хакамада");
-        driver.findElement((By.cssSelector("[data-test-id=phone] input"))).sendKeys("+70000000000");
+        driver.findElement((By.cssSelector("[data-test-id=phone] input"))).sendKeys("+79522345678");
         driver.findElement((By.cssSelector("[data-test-id=agreement]"))).click();
         driver.findElement(By.cssSelector("button.button.button_view_extra.button_size_m.button_theme_alfa-on-white")).click();
         String text = driver.findElement((By.cssSelector("[data-test-id=order-success]"))).getText();
         assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", text.trim());
-
 
     }
 
