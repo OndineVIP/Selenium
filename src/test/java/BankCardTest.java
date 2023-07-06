@@ -14,12 +14,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BankCardTest {
     private WebDriver driver;
+    private Object name;
 
 
     @BeforeAll
     static void setUpAll() {
         WebDriverManager.chromedriver().setup();
-           }
+    }
 
 
     @BeforeEach
@@ -40,8 +41,8 @@ public class BankCardTest {
 
     @Test
     void testDriver() {
-        driver.findElement(By.cssSelector("[data-test-id=name] input]")).sendKeys("Анна Ахматова");
-        driver.findElement(By.cssSelector("[data-test-id=phone] input]")).sendKeys("+79777888999");
+        driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Ахматова Анна");
+        driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+71211122233");
         driver.findElement(By.className("checkbox__box")).click();
         driver.findElement(By.className("button")).click();
         String text = driver.findElement(By.cssSelector("[data-test-id=order-success]")).getText();
